@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PIX por CNPJ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f2ff, #cce7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #003366;
+      text-align: center;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    span {
+      font-weight: bold;
+      color: #005fa3;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 14px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .msg {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #2e2e2e;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 25px 15px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p>Estamos organizando uma <strong>ação especial</strong> na <strong>Casa Doce Lar</strong>, um lar que acolhe adolescentes em situação de vulnerabilidade. E precisamos de você para fazer isso acontecer.</p>
+
+    <p><strong>Sua oferta pode ser resposta de oração.</strong></p>
+
+    <p>Seja parte disso! <span>Doe com amor 💙</span></p>
+
+    <button onclick="copiarCNPJ()">Copiar CNPJ para PIX</button>
+    <div class="msg" id="mensagem"></div>
+  </div>
+
+  <script>
+    function copiarCNPJ() {
+      const cnpj = '57919927000147'; // Substitua pelo seu CNPJ real
+      navigator.clipboard.writeText(cnpj).then(() => {
+        document.getElementById('mensagem').innerText = 'CNPJ copiado! Agora é só colar no app do banco.';
+      }).catch(err => {
+        document.getElementById('mensagem').innerText = 'Erro ao copiar. Tente novamente.';
+      });
+    }
+  </script>
+
+</body>
+</html>
